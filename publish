@@ -5,4 +5,4 @@
 
 # Publish the site to the S3 bucket.
 
-aws s3 sync --acl public-read --sse --delete _site/ s3://villagevideos-justinleitgeb-com
+aws s3 sync --acl public-read --sse --delete _site/ s3://pittsford-villagevideos-com
