@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'erb'
+
+proj_root = File.dirname(__FILE__)
+
+Video = Struct.new(:name, :link)
+
+videos = YAML.load_file(File.join(proj_root, 'videos.yaml')).inject([]) do |r, e|
+  r << Video.new(e[0], e[1])
+end
+
+template = ERB.new(File.read(File.join(proj_root, 'index.html.erb')))
+puts template.result_with_hash(videos: videos)
