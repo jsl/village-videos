@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Make a new index based on contents of the yaml file.
+./generate
+
 # Publish the site to the S3 bucket.
 
 aws s3 sync --acl public-read --sse --delete _site/ s3://villagevideos-justinleitgeb-com

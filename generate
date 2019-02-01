@@ -12,4 +12,7 @@ videos = YAML.load_file(File.join(proj_root, 'videos.yaml')).inject([]) do |r, e
 end
 
 template = ERB.new(File.read(File.join(proj_root, 'index.html.erb')))
-puts template.result_with_hash(videos: videos)
+File.write(File.join(proj_root, '_site', 'index.html'),
+           template.result_with_hash(videos: videos))
+
+puts "Done generating new index file in _site/index.html."
